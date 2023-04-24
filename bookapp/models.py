@@ -18,7 +18,7 @@ class Language(models.Model):
 class Book(models.Model):
     name = models.CharField(max_length=50)
     ISBN = models.CharField(max_length=13)
-    sinopsys = models.CharField(max_length=200)
+    synopsis = models.TextField(blank=True)
     genre = models.ForeignKey(Genre, on_delete=models.CASCADE)
     language = models.ForeignKey(Language, on_delete=models.CASCADE)
     cover = models.URLField(max_length=200, null=False, default="")
