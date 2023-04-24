@@ -1,7 +1,7 @@
 from django.views.generic import ListView
-from .models import Book
+from .models import Publishing
 
 class HomeView(ListView):
-    model  = Book
+    model  = Publishing
     template_name = 'home.html'
 
