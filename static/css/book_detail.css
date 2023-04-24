@@ -17,15 +17,17 @@
 .book-title {
     font-style: normal;
     font-weight: 700;
-    font-size: 24px;
+    font-size: 30px;
 }
 
 .book-properties {
+    font-size: 20px;
     line-height: 8px;
     font-style: italic;
     margin-bottom: 25px;
 }
 
 .book-synopsis{
+    font-size: 18px;
     text-align: justify;
 }
