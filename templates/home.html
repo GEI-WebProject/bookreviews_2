@@ -5,9 +5,18 @@
     BookReviews
 {% endblock title %}
 
+{% block head %}
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+{% endblock head %}
+
 {% block content %}
     <p>Welcome to the best book reviews web. Enjoy! :D</p>
+    
+    <!-- List of books -->
     <div class="recommended-books">
-        {% include 'recommended.html' %}
+        <h2>Recommended books</h2>
+        {% for publishing in object_list %}
+            {% include 'book_entry.html' %}
+        {% endfor %}
     </div>
 {% endblock content %}

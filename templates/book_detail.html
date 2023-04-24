@@ -1,4 +1,17 @@
 {% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    {{ publishing.book.name }}
+{% endblock title %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'css/book_detail.css' %}">
+{% endblock head %}
+
 {% block content %}
-    <h1>{{ publishing.book.name }}</h1>
-{% endblock %}
+    <div class="book-detail">
+        {% include 'book_entry.html' %}
+    </div>
+{% endblock content %}
+```

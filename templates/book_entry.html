@@ -1,0 +1,23 @@
+<div class="book-entry">
+    <img src="{{ publishing.book.cover }}" class="book-cover">
+    
+    <div class="book-details">
+        <div class="book-title">
+            <a href="">{{ publishing.book.name }}</a>
+        </div>
+        
+        <div class="book-properties">
+            <p>{{ publishing.author }}</p>
+            <p>{{ publishing.book.genre }}</p>
+            <p>{{ publishing.book.language }}</p>
+        </div>
+        
+        
+        <div class="book-synopsis">
+            <p>{{ publishing.book.synopsis|linebreaksbr|truncatewords:100 }}
+            </p> 
+        </div>
+
+    </div>
+    <div class="clear"></div>   <!-- Clear float -->
+</div>
