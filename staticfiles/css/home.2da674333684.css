@@ -1,0 +1,41 @@
+.book-entry {
+    margin-bottom: 40px;
+    outline: 5px solid blue;
+}
+
+.book-cover{
+    float: left;
+    margin-right: 15px;
+}
+
+.book-details {
+    overflow: auto;
+    display: block;
+    outline: 1px solid red
+}
+
+.book-title {
+    font-family: 'Verdana', sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    outline: 2px solid green;
+}
+
+.book-properties {
+    font-family: 'Verdana', sans-serif;
+    line-height: 5px;
+    display: flex;
+    align-items: center;
+    outline: 2px solid green;
+}
+
+.book-synopsis{
+    font-family: 'Verdana', sans-serif;
+    display: flex;
+    align-items: center;
+    text-align: justify;
+}
+.clear {
+    clear: both;
+}

@@ -1,0 +1,14 @@
+.book-entry {
+    margin-bottom: 40px;
+    outline: 5px solid blue;
+}
+
+.book-cover{
+    float: left;
+    margin-right: 15px;
+    outline: 2 px solid green;
+}
+.book-details {
+    overflow: auto;
+    outline: 1px solid red
+}

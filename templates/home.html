@@ -1,32 +1,13 @@
 {% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    BookReviews
+{% endblock title %}
+
 {% block content %}
     <p>Welcome to the best book reviews web. Enjoy! :D</p>
-
-    <!-- List of books -->
-    <h2>Recommended books</h2>
-
-    {% for publishing in object_list %}
-        <div class="book-entry" style="margin-bottom: 40px">
-            <img src="{{ publishing.book.cover }}" class="book-cover" style="float: left; margin-right: 15px;">
-            
-            <div class="book-details" style="overflow: auto;">
-                <div class="book-title">
-                    <a href="">{{ publishing.book.name }}</a>
-                </div>
-                
-                <div class="book-properties">
-                    <p>
-                        {{ publishing.author }}<br>
-                        {{ publishing.book.genre }}<br>
-                        {{ publishing.book.language }}
-                    </p>
-                </div>
-                
-                <div class="book-synopsis"
-                    <p>{{ publishing.book.synopsis|truncatewords:100 }}</p>
-                </div>
-
-            <div style="clear: both;"></div> <!-- Clear float -->
-        </div>
-    {% endfor %}
+    <div class="recommended-books">
+        {% include 'recommended.html' %}
+    </div>
 {% endblock content %}

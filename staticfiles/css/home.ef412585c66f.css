@@ -1,0 +1,9 @@
+.book-entry {
+    margin-bottom: 40px;
+    outline: 1px solid blue;
+}
+
+.book-details {
+    overflow: auto;
+    outline: 1px solid red
+}

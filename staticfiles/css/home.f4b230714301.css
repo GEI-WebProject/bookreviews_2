@@ -1,0 +1,28 @@
+.book-entry {
+    margin-bottom: 40px;
+    outline: 5px solid blue;
+}
+
+.book-cover{
+    float: left;
+    margin-right: 15px;
+}
+
+.book-details {
+    overflow: auto;
+    display: block;
+    outline: 1px solid red
+}
+
+.book-title {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 24px;
+    outline: 2px solid green;
+}
+
+.clear {
+    clear: both;
+}

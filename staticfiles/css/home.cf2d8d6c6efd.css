@@ -1,0 +1,37 @@
+.book-entry {
+    margin-bottom: 40px;
+    outline: 5px solid blue;
+}
+
+.book-cover{
+    float: left;
+    margin-right: 15px;
+}
+
+.book-details {
+    overflow: auto;
+    display: block;
+    outline: 1px solid red
+}
+
+.book-title {
+    font-family: 'Verdana', sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+}
+
+.book-properties {
+    font-family: 'Verdana', sans-serif;
+    line-height: 8px;
+}
+
+.book-synopsis{
+    font-family: 'Verdana', sans-serif;
+    align-items: center;
+    text-align: justify;
+    outline: 2px solid purple;
+}
+.clear {
+    clear: both;
+}

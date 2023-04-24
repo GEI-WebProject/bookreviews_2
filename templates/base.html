@@ -1,6 +1,12 @@
+{% load static %}
 <html>
     <head>
-        <title>BookReviews</title>
+        <title>
+            {% block title %}
+            {% endblock title %}
+        </title>
+        {% block head %}
+        {% endblock head %}
         <style>
             .nav-right {
                 float: right;

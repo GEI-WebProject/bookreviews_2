@@ -1,0 +1,45 @@
+/* Style for book entry */
+.book-entry {
+    margin-bottom: 75px;
+    display: block;
+    outline: 1px solid blue;
+}
+
+/* Style for book details */
+.book-details {
+    overflow: auto;
+    outline: 1px solid red;
+}
+
+/* Style for book title */
+.book-title{
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    outline: 1px solid red;
+}
+  
+/* Style for book properties */
+.book-properties {
+    margin-bottom: 20px;
+    outline: 1px solid red;
+}
+  
+/* Style for book covers */
+.book-cover {
+    width: 150px;
+    height: 200px;
+    object-fit: cover;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    outline: 1px solid red;
+}
+  
+/* Style for book information */
+.book-info {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    outline: 1px solid red;
+}
+  
