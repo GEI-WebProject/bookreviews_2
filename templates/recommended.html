@@ -1,7 +1,7 @@
 {% load static %}
 
 <head>
-    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+    <link rel="stylesheet" href="{% static 'css/recommended.css' %}">
 </head>
 
 <!-- List of books -->
@@ -25,7 +25,6 @@
             
             <div class="book-synopsis">
                 <p>{{ publishing.book.synopsis|linebreaksbr|truncatewords:100 }}
-                    More
                 </p> 
             </div>
 
