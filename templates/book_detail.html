@@ -11,7 +11,7 @@
 
 {% block content %}
     <div class="book-detail">
-        {% include 'book_entry.html' %}
+        {% include 'book_entry.html' with truncate=False %}
     </div>
 {% endblock content %}
 ```

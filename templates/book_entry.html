@@ -14,8 +14,13 @@
         
         
         <div class="book-synopsis">
-            <p>{{ publishing.book.synopsis|linebreaksbr|truncatewords:100 }}
-            </p> 
+            {% if truncate %}
+                <p>{{ publishing.book.synopsis|linebreaksbr|truncatewords:100 }}
+                    <a href="{% url 'book_detail' publishing.id %}">Read more</a>
+                </p>
+            {% else %}
+                <p>{{ publishing.book.synopsis|linebreaksbr }}</p>
+            {% endif %}
         </div>
 
     </div>
