@@ -3,7 +3,7 @@
     
     <div class="book-details">
         <div class="book-title">
-            <a href="">{{ publishing.book.name }}</a>
+            <a href="{% url 'book_detail' publishing.id %}">{{ publishing.book.name }}</a>
         </div>
         
         <div class="book-properties">
