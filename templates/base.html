@@ -1,0 +1,35 @@
+<html>
+    <head>
+        <title>BookReviews</title>
+        <style>
+            .nav-right {
+                float: right;
+                margin-top: -50px;
+                margin-right: 20px;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div>
+            <header>
+                <div class="nav-left">
+                    <h1><a href="{% url 'home' %}">BookReviews</a></h1>
+                </div>
+                <div class="nav-right">
+                    {% if user.is_authenticated %}
+                        Welcome, {{ user.username }}! |
+                        <a href="{% url 'logout' %}">Log out</a>
+
+                    {% else %}
+                        You're not logged in |
+                        <a href="{% url 'login' %}">Log In</a> |
+                        <a href="{% url 'signup' %}">Sign Up</a>
+                    {% endif %}
+                </div>
+            </header>
+            {% block content %}
+            {% endblock content %}
+        </div>
+    </body>
+</html>
