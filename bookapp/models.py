@@ -21,6 +21,7 @@ class Book(models.Model):
     sinopsys = models.CharField(max_length=200)
     genre = models.ForeignKey(Genre, on_delete=models.CASCADE)
     language = models.ForeignKey(Language, on_delete=models.CASCADE)
+    cover = models.URLField(max_length=200, null=False, default="")
 
     def __str__(self):
          return self.name
@@ -38,7 +39,10 @@ class Publisher(models.Model):
     def __str__(self):
          return self.name
     
-class Publishes(models.Model):
+class Publishing(models.Model):
     author = models.ForeignKey(Author, on_delete=models.CASCADE)
     publisher = models.ForeignKey(Publisher, on_delete=models.CASCADE)
     book = models.ForeignKey(Book, on_delete=models.CASCADE)
+
+    def __str__(self) -> str:
+        return self.book, self.publisher 
