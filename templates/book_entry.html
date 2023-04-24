@@ -1,5 +1,7 @@
 <div class="book-entry">
-    <img src="{{ publishing.book.cover }}" class="book-cover">
+    <a href="{% url 'book_detail' publishing.id %}">
+        <img src="{{ publishing.book.cover }}" class="book-cover">
+    </a>
     
     <div class="book-details">
         <div class="book-title">
