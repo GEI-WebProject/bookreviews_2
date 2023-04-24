@@ -4,8 +4,14 @@
     {% for book in object_list %}
         <div class="book-entry">
             <b>
-                <a href="">{{ book.genre }}</a>
+                <a href="">{{ book.name }}</a>
+                <br>
             </b>
+            <i>
+                {{ book.genre }}
+                <br>
+                {{ book.language }}
+            </i>
             <p>
                 {{ book.sinopsys }} 
             </p>
