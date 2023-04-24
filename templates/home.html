@@ -1,4 +1,14 @@
 {% extends 'base.html' %}
 {% block content %}
-<p>Welcome to the best book reviews web. Enjoy! :D</p>
+    <p>Welcome to the best book reviews web. Enjoy! :D</p>
+    {% for book in object_list %}
+        <div class="book-entry">
+            <b>
+                <a href="">{{ book.name }}</a>
+            </b>
+            <p>
+                {{ book.sinopsys }} 
+            </p>
+        </div>
+    {% endfor %}
 {% endblock content %}
