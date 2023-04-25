@@ -15,7 +15,7 @@
     <!-- List of books -->
     <div class="recommended-books">
         <h2>Recommended books</h2>
-        {% for publishing in object_list %}
+        {% for publishing in publishings %}
             {% include 'book_entry.html' with truncate=True %}
         {% endfor %}
     </div>

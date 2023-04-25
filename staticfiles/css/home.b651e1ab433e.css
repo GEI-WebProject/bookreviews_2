@@ -1,39 +1,39 @@
 .book-entry {
     margin-bottom: 50px;
-    outline: 5px solid red;
+    outline: 5px solid blue
 }
 
 .book-cover{
     float: left;
     margin-right: 15px;
     padding-left: 5px;
-    outline: 1px solid blue;   
+    outline: 1px solid blue    
 }
 
 .book-details {
     display: block;
     padding-right: 20px;
     margin-left: 180px;
-    outline: 1px solid blue;
+    outline: 1px solid blue
 }
 
 .book-title {
     font-style: normal;
     font-weight: 700;
     font-size: 24px;
-    outline: 1px solid blue;
+    outline: 1px solid blue
 }
 
 .book-properties {
     line-height: 8px;
     font-style: italic;
     margin-bottom: 25px;
-    outline: 1px solid blue;
+    outline: 1px solid blue
 }
 
 .book-synopsis{
     text-align: justify;
-    outline: 1px solid blue;
+    outline: 1px solid blue
 }
 
 .clear {

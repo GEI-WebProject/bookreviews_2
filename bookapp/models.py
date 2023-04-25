@@ -44,5 +44,5 @@ class Publishing(models.Model):
     publisher = models.ForeignKey(Publisher, on_delete=models.CASCADE)
     book = models.ForeignKey(Book, on_delete=models.CASCADE)
 
-    def __str__(self) -> str:
-        return self.book, self.publisher 
+    # def __str__(self) -> str:
+    #     return str(self.book, self.publisher)
