@@ -10,6 +10,7 @@ class HomeView(ListView):
     
     def get_queryset(self):
         return Publishing.objects.order_by('?')
+        
 
 
 class BookDetailView(DetailView):

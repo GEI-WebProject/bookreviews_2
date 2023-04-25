@@ -36,6 +36,12 @@
             </header>
             {% block content %}
             {% endblock content %}
+
+            {% block pagination %}
+                {% if is_paginated %}
+                    {% include 'pagination.html' %}
+                {% endif %}
+            {% endblock pagination %}
         </div>
     </body>
 </html>
