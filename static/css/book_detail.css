@@ -5,8 +5,7 @@
 
 .book-cover{
     float: left;
-    height: 400px;
-    max-width: 266px;
+    width: 266px;
 }
 
 .book-details {
