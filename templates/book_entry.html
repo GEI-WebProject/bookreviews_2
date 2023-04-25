@@ -1,7 +1,11 @@
 <div class="book-entry">
-    <a href="{% url 'book_detail' publishing.id %}">
+    {% if detailed %}
         <img src="{{ publishing.book.cover }}" class="book-cover">
-    </a>
+    {% else %}
+        <a href="{% url 'book_detail' publishing.id %}">
+            <img src="{{ publishing.book.cover }}" class="book-cover">
+        </a>
+    {% endif %}
     
     <div class="book-details">
         <div class="book-title">
@@ -16,12 +20,12 @@
         
         
         <div class="book-synopsis">
-            {% if truncate %}
-                <p>{{ publishing.book.synopsis|linebreaksbr|truncatewords:100 }}
-                    <a href="{% url 'book_detail' publishing.id %}">Read more</a>
-                </p>
-            {% else %}
+            {% if detailed %}
                 <p>{{ publishing.book.synopsis|linebreaksbr }}</p>
+            {% else %}
+                <p>{{ publishing.book.synopsis|linebreaksbr|truncatewords:100 }}
+                <a href="{% url 'book_detail' publishing.id %}">Read more</a>
+                </p>
             {% endif %}
         </div>
 

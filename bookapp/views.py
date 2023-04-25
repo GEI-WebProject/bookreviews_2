@@ -1,6 +1,5 @@
 from django.views.generic import ListView, DetailView
 from .models import Publishing
-from random import random
 
 class HomeView(ListView):
     model  = Publishing
@@ -10,8 +9,7 @@ class HomeView(ListView):
     
     def get_queryset(self):
         return Publishing.objects.order_by('?')
-        
-
+    
 
 class BookDetailView(DetailView):
     model = Publishing
