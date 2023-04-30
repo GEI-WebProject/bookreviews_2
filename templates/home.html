@@ -15,7 +15,7 @@
     <!-- List of books -->
     <div class="recommended-books">
         <h2>Recommended books</h2>
-        {% for publishing in publishings %}
+        {% for book in books %}
             {% include 'book_entry.html' with detailed=False %}
         {% endfor %}
     </div>

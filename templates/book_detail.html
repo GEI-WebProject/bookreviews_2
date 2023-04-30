@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block title %}
-    {{ publishing.book.name }}
+    {{ book.title }}
 {% endblock title %}
 
 {% block head %}
@@ -14,4 +14,3 @@
         {% include 'book_entry.html' with detailed=True %}
     </div>
 {% endblock content %}
-```

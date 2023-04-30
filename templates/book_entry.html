@@ -1,31 +1,39 @@
 <div class="book-entry">
     {% if detailed %}
-        <img src="{{ publishing.book.cover }}" class="book-cover">
+        <img src="{{ book.cover }}" class="book-cover">
     {% else %}
-        <a href="{% url 'book_detail' publishing.id %}">
-            <img src="{{ publishing.book.cover }}" class="book-cover">
+        <a href="{% url 'book_detail' book.id %}">
+            <img src="{{ book.cover }}" class="book-cover">
         </a>
     {% endif %}
     
     <div class="book-details">
         <div class="book-title">
-            <a href="{% url 'book_detail' publishing.id %}">{{ publishing.book.name }}</a>
+            <a href="{% url 'book_detail' book.id %}">{{ book.title }}</a>
         </div>
         
         <div class="book-properties">
-            <p>{{ publishing.author }}</p>
-            <p>{{ publishing.book.genre }}</p>
-            <p>{{ publishing.book.language }}</p>
+            <p><b>Authors</b>: {{ book.authors.all|join:", " }}</p>
+            <p><b>Genres</b>: {{ book.genres.all|join:", " }}</p>
+            <p><b>Language</b>: {{ book.language }}</p>
+            {% if detailed %}
+                <p><b>ISBN</b>: {{ book.ISBN }}</p>
+                <p><b>Publishing</b>: {{ book.publisher }}</p>
+            {% endif %}
         </div>
         
         
         <div class="book-synopsis">
             {% if detailed %}
-                <p>{{ publishing.book.synopsis|linebreaksbr }}</p>
+                {% autoescape off %}
+                    <p>{{ book.synopsis|linebreaksbr }}</p>
+                {% endautoescape %}
             {% else %}
-                <p>{{ publishing.book.synopsis|linebreaksbr|truncatewords:100 }}
-                <a href="{% url 'book_detail' publishing.id %}">Read more</a>
-                </p>
+                {% autoescape off %}
+                    <p>{{ book.synopsis|linebreaksbr|truncatewords:100 }}
+                    <a href="{% url 'book_detail' book.id %}">Read more</a>
+                    </p>
+                {% endautoescape %}
             {% endif %}
         </div>
 

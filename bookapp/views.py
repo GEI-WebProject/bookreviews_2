@@ -1,17 +1,17 @@
 from django.views.generic import ListView, DetailView
-from .models import Publishing
+from .models import Book
 
 class HomeView(ListView):
-    model  = Publishing
+    model  = Book
     template_name = 'home.html'
-    context_object_name = 'publishings'
+    context_object_name = 'books'
     paginate_by = 3
     
     def get_queryset(self):
-        return Publishing.objects.order_by('?')
+        return Book.objects.order_by('?')
     
 
 class BookDetailView(DetailView):
-    model = Publishing
+    model = Book
     template_name = 'book_detail.html'
-    context_object_name = 'publishing'
+    context_object_name = 'book'

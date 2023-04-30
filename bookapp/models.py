@@ -9,40 +9,38 @@ class Genre(models.Model):
          return self.name
     
 class Language(models.Model):
-    name = models.CharField(max_length=50)
+    name = models.CharField(max_length=10)
 
     def __str__(self):
          return self.name
     
-    
-class Book(models.Model):
-    name = models.CharField(max_length=50)
-    ISBN = models.CharField(max_length=13)
-    synopsis = models.TextField(blank=True)
-    genre = models.ForeignKey(Genre, on_delete=models.CASCADE)
-    language = models.ForeignKey(Language, on_delete=models.CASCADE)
-    cover = models.URLField(max_length=200, null=False, default="")
-
-    def __str__(self):
-         return self.name
     
 class Author(models.Model):
     name = models.CharField(max_length=50)
-    birth_date = models.DateField()
+    birth_date = models.DateField(null=True)
+    bio = models.TextField(blank=True, null=True)
+    picture = models.URLField(max_length=200, null=True)
 
     def __str__(self):
          return self.name
+     
     
 class Publisher(models.Model):
     name = models.CharField(max_length=50)
 
     def __str__(self):
          return self.name
+     
     
-class Publishing(models.Model):
-    author = models.ForeignKey(Author, on_delete=models.CASCADE)
+class Book(models.Model):
+    title = models.CharField(max_length=50)
+    ISBN = models.CharField(max_length=13)
+    synopsis = models.TextField(blank=True)
+    genres = models.ManyToManyField(Genre)
+    language = models.ForeignKey(Language, on_delete=models.CASCADE)
+    cover = models.URLField(max_length=200, null=True)
+    authors = models.ManyToManyField(Author)
     publisher = models.ForeignKey(Publisher, on_delete=models.CASCADE)
-    book = models.ForeignKey(Book, on_delete=models.CASCADE)
 
-    # def __str__(self) -> str:
-    #     return str(self.book, self.publisher)
+    def __str__(self):
+         return self.title
