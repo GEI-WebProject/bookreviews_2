@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    {{ author.title }}
+{% endblock title %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'css/book_detail.css' %}">
+{% endblock head %}
+
+{% block content %}
+    <div class="book-detail">
+        {% include 'author_entry.html' with detailed=True %}
+    </div>
+{% endblock content %}

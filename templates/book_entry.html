@@ -13,7 +13,11 @@
         </div>
         
         <div class="book-properties">
-            <p><b>Authors</b>: {{ book.authors.all|join:", " }}</p>
+            <p><b>Author</b>: 
+                {% for author in book.authors.all %}
+                <a href="{% url 'author_detail' author.id %}">{{ author.name }}</a>
+                {% endfor %}
+            </p>
             <p><b>Genres</b>: {{ book.genres.all|join:", " }}</p>
             <p><b>Language</b>: {{ book.language }}</p>
             {% if detailed %}
