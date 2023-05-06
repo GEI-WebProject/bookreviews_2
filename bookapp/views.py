@@ -50,3 +50,19 @@ class AuthorDetailView(DetailView):
     model = Author
     template_name = 'authors/author_detail.html'
     context_object_name = 'author'
+    
+
+class AuthorBooksView(ListView):
+    model = Book
+    template_name = 'authors/author_books.html'
+    context_object_name = 'books'
+    paginate_by = 3
+    
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['author'] = Author.objects.get(id=self.kwargs.get('pk'))
+        return context
+    
+    def get_queryset(self):
+        return Book.objects.filter(authors=self.kwargs.get('pk'))
