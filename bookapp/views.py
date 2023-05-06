@@ -36,6 +36,16 @@ class BookDetailView(DetailView):
     context_object_name = 'book'
 
 
+class AuthorsView(ListView):
+    model  = Author
+    template_name = 'authors/authors.html'
+    context_object_name = 'authors'
+    paginate_by = 3
+    
+    def get_queryset(self):
+        return Author.objects.order_by('name')
+
+
 class AuthorDetailView(DetailView):
     model = Author
     template_name = 'authors/author_detail.html'
