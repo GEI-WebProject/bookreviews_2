@@ -19,7 +19,7 @@ class Author(models.Model):
     name = models.CharField(max_length=50)
     birth_date = models.DateField(null=True)
     bio = models.TextField(blank=True, null=True)
-    picture = models.URLField(max_length=200, null=True)
+    picture = models.URLField(max_length=200, null=True, default="https://openlibrary.org/images/icons/avatar_author-lg.png")
 
     def __str__(self):
          return self.name

@@ -188,7 +188,9 @@ def getAuthorInfoFromAuthorsAPI(auth: Author):
         auth.bio = bio['value'] if type(bio) is dict else bio
         photo = d.get('photos')
         if photo is not None:
-            auth.picture = f"https://covers.openlibrary.org/b/id/{photo[0]}-L.jpg"
+            auth.picture = f"https://covers.openlibrary.org/b/id/{photo[0]}-M.jpg"
+        else:
+            auth.picture = "https://openlibrary.org/images/icons/avatar_author-lg.png"
     else:
         if DEBUG: print("Author Not found", auth.author_id)
 
