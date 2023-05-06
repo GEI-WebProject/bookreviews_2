@@ -19,6 +19,16 @@ class HomeView(ListView):
             cache.set(today, daily_books, 60 * 60 * 24)  # Cache for 24 hours
         return daily_books
     
+    
+class BooksView(ListView):
+    model = Book
+    template_name = 'books/books.html'
+    context_object_name = 'books'
+    paginate_by = 3
+    
+    def get_queryset(self):
+        return Book.objects.order_by('title')
+    
 
 class BookDetailView(DetailView):
     model = Book
