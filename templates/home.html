@@ -2,19 +2,16 @@
 {% load static %}
 
 {% block title %}
-    BookReviews
 {% endblock title %}
 
 {% block head %}
     <link rel="stylesheet" href="{% static 'css/home.css' %}">
 {% endblock head %}
 
-{% block content %}
-    <p>Welcome to the best book reviews web. Enjoy! :D</p>
-    
+{% block content %}    
     <!-- List of books -->
     <div class="recommended-books">
-        <h2>Recommended books</h2>
+        <p><h2>5 Random Books Of The Day</h2></p>
         {% for book in books %}
             {% include 'books/book_entry.html' with detailed=False %}
         {% endfor %}
