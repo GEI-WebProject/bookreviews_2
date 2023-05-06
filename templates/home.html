@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+{% extends 'base/base.html' %}
 {% load static %}
 
 {% block title %}
@@ -16,7 +16,7 @@
     <div class="recommended-books">
         <h2>Recommended books</h2>
         {% for book in books %}
-            {% include 'book_entry.html' with detailed=False %}
+            {% include 'books/book_entry.html' with detailed=False %}
         {% endfor %}
     </div>
 
