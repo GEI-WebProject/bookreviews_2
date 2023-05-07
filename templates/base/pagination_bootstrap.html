@@ -3,10 +3,17 @@
   <ul class="pagination justify-content-center">
     {% if page_obj.has_previous %}
     <li class="page-item">
+      {% if query %}
+      <a class="page-link" href="?q={{ query }}&page={{ page_obj.previous_page_number }}" aria-label="Previous">
+        <span aria-hidden="true">&laquo;</span>
+        <span class="visually-hidden">Previous</span>
+      </a>
+      {% else %}
       <a class="page-link" href="?page={{ page_obj.previous_page_number }}" aria-label="Previous">
         <span aria-hidden="true">&laquo;</span>
         <span class="visually-hidden">Previous</span>
       </a>
+      {% endif %}
     </li>
     {% else %}
     <li class="page-item disabled">
@@ -24,17 +31,28 @@
     </li>
     {% else %}
     <li class="page-item">
+      {% if query %}
+      <a class="page-link" href="?q={{query}}&page={{ num }}">{{ num }}</a>
+      {% else %}
       <a class="page-link" href="?page={{ num }}">{{ num }}</a>
+      {% endif %}
     </li>
     {% endif %}
     {% endfor %}
 
     {% if page_obj.has_next %}
     <li class="page-item">
+      {% if query %}
+      <a class="page-link" href="?q={{ query }}&page={{ page_obj.next_page_number }}" aria-label="Next">
+        <span aria-hidden="true">&raquo;</span>
+        <span class="visually-hidden">Next</span>
+      </a>
+      {% else %}
       <a class="page-link" href="?page={{ page_obj.next_page_number }}" aria-label="Next">
         <span aria-hidden="true">&raquo;</span>
         <span class="visually-hidden">Next</span>
       </a>
+      {% endif %}
     </li>
     {% else %}
     <li class="page-item disabled">
