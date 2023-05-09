@@ -1,0 +1,19 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block title %}
+    {{ review.title }}
+{% endblock title %}
+
+{% block head %}
+{% endblock head %}
+
+{% block content %}
+    <div>
+        {{ review.title }} by {{ review.user }}
+        <br>
+        {{ review.body }}}
+        Created: {{ review.created_at }}}
+
+    </div>
+{% endblock content %}

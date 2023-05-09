@@ -5,11 +5,15 @@
     Reviews
 {% endblock title %}
 
+{% block head %}
+{% endblock head %}
+
+
 {% block content %}
     <h1>Reviews</h1>
     {% for review in reviews %}
         <p>
-            {{ review }}
+            <a href="{% url 'review_detail' review.id %}">{{ review.title }}</a> by {{ review.user }}
             <br>
             {{ review.body }}
         </p>
