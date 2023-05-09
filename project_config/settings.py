@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'bookapp',
     'accounts',
     'bootstrap5',
+    'reviews',
 ]
 
 MIDDLEWARE = [
