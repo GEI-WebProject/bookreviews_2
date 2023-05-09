@@ -1,0 +1,18 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block title %}
+    Reviews
+{% endblock title %}
+
+{% block content %}
+    <h1>Reviews</h1>
+    {% for review in reviews %}
+        <p>
+            {{ review }}
+            <br>
+            {{ review.body }}
+        </p>
+    {% endfor %}
+{% endblock content %}
+```
