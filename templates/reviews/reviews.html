@@ -12,11 +12,7 @@
 {% block content %}
     <h1>Reviews</h1>
     {% for review in reviews %}
-        <p>
-            <a href="{% url 'review_detail' review.id %}">{{ review.title }}</a> by {{ review.user }}
-            <br>
-            {{ review.body }}
-        </p>
+        {% include 'reviews/review_entry.html' %}
     {% endfor %}
 {% endblock content %}
 ```
