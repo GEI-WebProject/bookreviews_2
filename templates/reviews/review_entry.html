@@ -7,7 +7,23 @@
         </h5>
 
         <p class="card-text">
-            {{ review.body | linebreaksbr | truncatewords:50 }}</p>
+            {{ review.body | linebreaksbr | truncatewords:50 }}
+        </p>
+
+        <br>
+
+        <!-- Bottom line with date and edit/delete buttons -->
+        <div class="row align-items-end"">
+            <div class="col">
+                <a href="#" class="btn btn-primary">Edit</a>
+                <a href="#" class="btn btn-danger">Delete</a>
+            </div>
+            <div class="col">
+                <p class="card-text text-end">
+                    <small class="text-muted">{{ review.created_at }} (Last update: {{review.updated_at }})</small>
+                </p>
+            </div>
+
         </div>
     </div>
 </div>
