@@ -5,7 +5,8 @@
         <h5 class="card-title">
             <a href="{% url 'review_detail' review.id %}">{{ review.title }}</a>
         </h5>
-
+        <p>Review ID: {{ review.id }}</p>
+        <p>Book ID: {{ review.book.id }}</p>
         <p class="card-text">
             {% autoescape off %}
                 {{ review.body | linebreaksbr | truncatewords:50 }}
@@ -17,8 +18,11 @@
         <!-- Bottom line with date and edit/delete buttons -->
         <div class="row align-items-end"">
             <div class="col">
-                <a href="#" class="btn btn-primary">Edit</a>
-                <a href="#" class="btn btn-danger">Delete</a>
+                <a href="{% url 'review_update' book_id=review.book.id pk=review.pk %}" class="btn btn-primary">Edit</a>
+                <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#confirm-delete-modal-{{ review.id }}">
+                    Delete
+                </button>
+                {% include 'reviews/review_delete.html'%}
             </div>
             <div class="col">
                 <p class="card-text text-end">
