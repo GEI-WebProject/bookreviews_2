@@ -19,6 +19,11 @@
     <!-- Book Reviews -->
     <div class="book-reviews">
         <h2>Latest Reviews</h2>
+
+        <!--Create a new review button-->
+        <a href="{% url 'review_create' book.id %}" class="btn btn-primary">Create a new review</a>
+
+        <!-- Show reviews -->
         {% if book.reviews.all %}
             {% for review in latest_reviews %}
                 {% include 'reviews/review_entry.html' %}

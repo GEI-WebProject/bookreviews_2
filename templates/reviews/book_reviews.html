@@ -12,6 +12,10 @@
     <h2>
         Reviews for <a href="{% url 'book_detail' book.id %}">{{ book.title }}</a>
     </h2>
+
+    <!--Create a new review button-->
+    <a href="{% url 'review_create' book.id %}" class="btn btn-primary">Create a new review</a>
+    
     {% for review in reviews %}
         {% include 'reviews/review_entry.html' %}
     {% endfor %}
