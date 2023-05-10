@@ -1,36 +1,38 @@
-.book-entry{
-    margin-left: 15px;
-    margin-right: 100px;
+.book-entry {
+    margin-bottom: 50px;
 }
 
 .book-cover{
     float: left;
     margin-right: 15px;
+    padding-left: 5px;
     width:100%;
-    min-width: 300px;
-    max-width:300px;
+    min-width: 200px;
+    max-width:200px;
 }
 
 .book-details {
     display: block;
     padding-right: 20px;
-    margin-left: 300px;
+    margin-left: 180px;
 }
 
 .book-title {
     font-style: normal;
     font-weight: 700;
-    font-size: 30px;
+    font-size: 24px;
 }
 
 .book-properties {
-    font-size: 20px;
     line-height: 8px;
     font-style: italic;
     margin-bottom: 25px;
 }
 
 .book-synopsis{
-    font-size: 18px;
     text-align: justify;
+}
+
+.clear {
+    clear: both;
 }

@@ -5,12 +5,16 @@
         <h5 class="card-title">
             <a href="{% url 'review_detail' review.id %}">{{ review.title }}</a>
         </h5>
+
+        <!-- Rating with stars, using rateYo js -->
+        <div class="rateyo-read-only", data-rateyo-rating="{{ review.rating }}",></div>
+        
+        <!-- Review body -->
         <p class="card-text">
             {% autoescape off %}
                 {{ review.body | linebreaksbr | truncatewords:50 }}
             {% endautoescape %}
         </p>
-
         <br>
 
         <!-- Bottom line with date and edit/delete buttons -->
