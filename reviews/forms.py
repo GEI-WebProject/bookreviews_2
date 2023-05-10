@@ -9,7 +9,7 @@ class ReviewForm(forms.ModelForm):
         'class': 'form-control',
         'rows': 1,
         'cols': 2,
-        }), max_length=50)
+        }), max_length=Review.title.max_length)
     body = forms.CharField(widget=forms.Textarea(attrs={
         'class': 'form-control',
         'rows': 4,
