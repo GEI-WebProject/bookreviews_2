@@ -43,5 +43,15 @@ class BookReviewsUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView)
     
     def test_func(self):
         return self.request.user == self.get_object().user
+    
+class BookReviewsDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
+    model = Review
+    template_name = "reviews/review_delete.html"
+    
+    def get_success_url(self):
+        return reverse_lazy('book_reviews', kwargs={'book_id': self.kwargs['book_id']})
+    
+    def test_func(self):
+        return self.request.user == self.get_object().user
 
     
