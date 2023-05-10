@@ -11,25 +11,26 @@
 {% endblock head %}
 
 {% block content %}
-    <!-- Book Details -->
-    <div class="book-detail">
+    <!-- Book Information -->
+    <div class="book-info">
         {% include 'books/book_entry.html' with detailed=True %}
     </div>
 
     <!-- Book Reviews -->
     <div class="book-reviews">
-        <h2>Reviews</h2>
+        <h2>Latest Reviews</h2>
         {% if book.reviews.all %}
             {% for review in latest_reviews %}
                 {% include 'reviews/review_entry.html' %}
             {% endfor %}
+
         {% else %}
             <p>No reviews yet!</p>
         {% endif %}
 
         <!-- Show more reviews -->
         {% if book.reviews.count > num_reviews_shown %}
-            <a href="#">Show more reviews</a>
+            <a href="{% url 'book_reviews' book.id %}">See more reviews</a>
         {% endif %}
     </div>
 {% endblock content %}
