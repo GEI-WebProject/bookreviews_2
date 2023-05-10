@@ -1,1 +1,18 @@
-Book Reviews
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block title %}
+    {{ book.title }}'s Reviews
+{% endblock title %}
+
+{% block head %}
+{% endblock head %}
+
+{% block content %}
+    <h2>
+        Reviews for <a href="{% url 'book_detail' book.id %}">{{ book.title }}</a>
+    </h2>
+    {% for review in reviews %}
+        {% include 'reviews/review_entry.html' %}
+    {% endfor %}
+{% endblock content %}
