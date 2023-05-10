@@ -17,6 +17,7 @@ class BookReviewsListView(ListView):
     model = Review
     template_name = "reviews/book_reviews.html"
     context_object_name = "reviews"
+    paginate_by = 2
 
     # Add get_queryset() method to filter reviews by book
     def get_queryset(self):
