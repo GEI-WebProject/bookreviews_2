@@ -1,1 +1,6 @@
-Book Reviews
+<h2>Reviews</h2>
+
+{% for review in reviews %}
+    {{ review.title }} by {{ review.user }}
+    <br>
+{% endfor %}

@@ -16,3 +16,7 @@ class BookReviewsListView(ListView):
     model = Review
     template_name = "reviews/book_reviews.html"
     context_object_name = "reviews"
+
+    # TODO: Add get_queryset() method to filter reviews by book
+    def get_queryset(self):
+        return Review.objects.filter(book=self.kwargs['book_id'])
