@@ -36,6 +36,11 @@ class BookDetailView(DetailView):
     template_name = 'books/book_detail.html'
     context_object_name = 'book'
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['last_reviews'] = self.object.reviews.all().order_by('-created_at')[:3]
+        return context
+
 
 class BookSearchView(ListView):
     model = Book

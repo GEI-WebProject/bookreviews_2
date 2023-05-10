@@ -20,9 +20,8 @@
     <div class="book-reviews">
         <h2>Reviews</h2>
         {% if book.reviews.all %}
-            {% for review in book.reviews.all %}
-                {{ review.title }}
-                <br>
+            {% for review in last_reviews %}
+                {% include 'reviews/review_entry.html' %}
             {% endfor %}
         {% else %}
             <p>No reviews yet!</p>
