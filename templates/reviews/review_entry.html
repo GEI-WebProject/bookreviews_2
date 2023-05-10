@@ -5,8 +5,6 @@
         <h5 class="card-title">
             <a href="{% url 'review_detail' review.id %}">{{ review.title }}</a>
         </h5>
-        <p>Review ID: {{ review.id }}</p>
-        <p>Book ID: {{ review.book.id }}</p>
         <p class="card-text">
             {% autoescape off %}
                 {{ review.body | linebreaksbr | truncatewords:50 }}
