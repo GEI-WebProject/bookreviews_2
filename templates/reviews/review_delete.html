@@ -12,11 +12,9 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <p>Review ID: {{ review.id }}</p>
-        <p>Book ID: {{ review.book.id }}</p>
         <form action="{% url 'review_delete' book_id=review.book.id pk=review.id %}" method="post">
           {% csrf_token %}
-          <button type="submit" class="btn btn-primary">Yes, sure</button>
+          <button type="submit" class="btn btn-primary">Yes, I am!</button>
         </form>
       </div>
     </div>
