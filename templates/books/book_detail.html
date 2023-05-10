@@ -7,10 +7,24 @@
 
 {% block head %}
     <link rel="stylesheet" href="{% static 'css/book_detail.css' %}">
+    <link rel="stylesheet" href="{% static 'css/review.css' %}">
 {% endblock head %}
 
 {% block content %}
+    <!-- Book Details -->
     <div class="book-detail">
         {% include 'books/book_entry.html' with detailed=True %}
     </div>
+
+    <!-- Book Reviews -->
+    <div class="book-reviews">
+        <h2>Reviews</h2>
+        {% if book.reviews.all %}
+            {% for review in book.reviews.all %}
+                {{ review.title }}
+                <br>
+            {% endfor %}
+        {% else %}
+            <p>No reviews yet!</p>
+        {% endif %}
 {% endblock content %}

@@ -10,4 +10,4 @@ class ReviewListView(ListView):
 class ReviewDetailView(DetailView):
     model = Review
     template_name = "reviews/review_detail.html"
-    context_object_name = "review"    
+    context_object_name = "review"

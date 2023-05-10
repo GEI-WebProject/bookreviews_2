@@ -30,11 +30,9 @@
             {% endblock content %}
 
             {% block pagination %}
-
-            {% if is_paginated %}
-            {% include 'base/pagination_bootstrap.html' %}
-            {% endif %}
-            
+                {% if is_paginated %}
+                    {% include 'base/pagination_bootstrap.html' %}
+                {% endif %}
             {% endblock pagination %}
         </div>
     </div>
