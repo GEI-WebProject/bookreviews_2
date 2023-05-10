@@ -5,6 +5,7 @@ from .models import Review
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from .forms import ReviewForm
 from bookapp.models import Book
+from django.contrib import messages
 
 
 class AllReviewsListView(ListView):
@@ -40,10 +41,13 @@ class CreateReviewView(LoginRequiredMixin, CreateView):
     model = Review
     template_name = "reviews/review_create.html"
     form_class = ReviewForm
+    success_message = "Review created successfully!"
+
 
     def form_valid(self, form):
         form.instance.user = self.request.user
         form.instance.book_id = self.kwargs['book_id']
+        messages.success(self.request, self.success_message)
         return super().form_valid(form)
 
     def get_success_url(self):
@@ -54,20 +58,31 @@ class UpdateReviewView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     model = Review
     template_name = "reviews/review_update.html"
     form_class = ReviewForm
+    success_message = "Review updated successfully!"
+
 
     def get_success_url(self):
         return reverse_lazy('book_reviews', kwargs={'book_id': self.kwargs['book_id']})
 
     def test_func(self):
         return self.request.user == self.get_object().user
+    
+    def form_valid(self, form):
+        messages.success(self.request, self.success_message)
+        return super().form_valid(form)
 
 
 class DeleteReviewView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     model = Review
     template_name = "reviews/review_delete.html"
+    success_message = "Review deleted successfully!"
 
     def get_success_url(self):
         return reverse_lazy('book_reviews', kwargs={'book_id': self.kwargs['book_id']})
 
     def test_func(self):
         return self.request.user == self.get_object().user
+    
+    def form_valid(self, form):
+        messages.success(self.request, self.success_message)
+        return super().form_valid(form)
