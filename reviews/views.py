@@ -32,5 +32,16 @@ class BookReviewsCreateView(LoginRequiredMixin, CreateView):
     
     def get_success_url(self):
         return reverse_lazy('book_reviews', kwargs={'book_id': self.kwargs['book_id']})
+    
+class BookReviewsUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
+    model = Review
+    template_name = "reviews/review_update.html"
+    form_class = ReviewForm
+    
+    def get_success_url(self):
+        return reverse_lazy('book_reviews', kwargs={'book_id': self.kwargs['book_id']})
+    
+    def test_func(self):
+        return self.request.user == self.get_object().user
 
     
