@@ -20,10 +20,16 @@
     <div class="book-reviews">
         <h2>Reviews</h2>
         {% if book.reviews.all %}
-            {% for review in last_reviews %}
+            {% for review in latest_reviews %}
                 {% include 'reviews/review_entry.html' %}
             {% endfor %}
         {% else %}
             <p>No reviews yet!</p>
         {% endif %}
+
+        <!-- Show more reviews -->
+        {% if book.reviews.count > num_reviews_shown %}
+            <a href="#">Show more reviews</a>
+        {% endif %}
+    </div>
 {% endblock content %}

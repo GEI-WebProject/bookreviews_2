@@ -35,10 +35,13 @@ class BookDetailView(DetailView):
     model = Book
     template_name = 'books/book_detail.html'
     context_object_name = 'book'
+    
+    REVIEWS_SHOWN = 2
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['last_reviews'] = self.object.reviews.all().order_by('-created_at')[:3]
+        context['latest_reviews'] = self.object.reviews.all().order_by('-created_at')[:self.REVIEWS_SHOWN]
+        context['num_reviews_shown'] = self.REVIEWS_SHOWN
         return context
 
 
