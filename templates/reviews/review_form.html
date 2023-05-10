@@ -1,0 +1,30 @@
+<form class="row g-3 mx-auto my-auto" method="post">
+  {% csrf_token %}
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <label class="form-label">{{ form.title.label }}</label>
+        {{ form.title }}
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <label class="form-label">{{ form.body.label }}</label>
+        {{ form.body }}
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group">
+          <label class="radio-inline">{{ form.rating.label }}</label>
+          {% for radio in form.rating %}
+          <div class="form-check form-check-inline">
+            {{ radio }}
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+    <button class="btn btn-secondary" type="submit">{{ label }}</button>
+  </div>
+</form>
