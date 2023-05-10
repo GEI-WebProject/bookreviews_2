@@ -32,7 +32,7 @@ class BookReviewsListView(ListView):
         context['book'] = Book.objects.get(pk=self.kwargs['book_id'])
         return context
     
-class BookReviewsCreateView(LoginRequiredMixin, CreateView):
+class CreateReviewView(LoginRequiredMixin, CreateView):
     model = Review
     template_name = "reviews/review_create.html"
     form_class = ReviewForm
@@ -45,7 +45,7 @@ class BookReviewsCreateView(LoginRequiredMixin, CreateView):
     def get_success_url(self):
         return reverse_lazy('book_reviews', kwargs={'book_id': self.kwargs['book_id']})
     
-class BookReviewsUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
+class UpdateReviewView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     model = Review
     template_name = "reviews/review_update.html"
     form_class = ReviewForm
@@ -56,7 +56,7 @@ class BookReviewsUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView)
     def test_func(self):
         return self.request.user == self.get_object().user
     
-class BookReviewsDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
+class DeleteReviewView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     model = Review
     template_name = "reviews/review_delete.html"
     
