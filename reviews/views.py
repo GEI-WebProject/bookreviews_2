@@ -28,7 +28,7 @@ class BookReviewsListView(ListView):
 
     # Add get_queryset() method to filter reviews by book
     def get_queryset(self):
-        return Review.objects.filter(book=self.kwargs['book_id']).order_by('-created_at')
+        return Review.objects.filter(book=self.kwargs['book_id']).order_by('-updated_at')
 
     # Add get_context_data() method to add book to context
     def get_context_data(self, **kwargs):
