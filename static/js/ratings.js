@@ -20,5 +20,11 @@ $(function() {
         onSet: function (rating) {
             $("input[name='rating']").val(rating);
         },
+
+        // Set different colors for different ratings
+        multiColor: {
+            "startColor": "#CFE9FC", // light blue
+            "endColor"  : "#3DA7F3" // dark blue
+        },
       });
     });
