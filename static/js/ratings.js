@@ -5,6 +5,7 @@ var rateYoConfig = {
 $(function() {
     $(".rateyo-read-only").rateYo({
         readOnly: true,
+        ratedFill: "#3DA7F3",
         ...rateYoConfig
     });
 });
