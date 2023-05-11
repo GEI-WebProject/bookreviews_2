@@ -11,7 +11,11 @@ $(function() {
 
 $(function() {
     $(".rateyo-interactive").rateYo({
-        readOnly: false,
-        ...rateYoConfig
+        fullStar: true, 
+        ...rateYoConfig,
+        onSet: function (rating) {
+            // Send the rating value to the server
+            $("input[name='rating']").val(rating);
+        },
+      });
     });
-});

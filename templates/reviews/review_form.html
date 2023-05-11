@@ -15,14 +15,9 @@
     </div>
     <div class="row">
       <div class="col-md-6">
-        <div class="form-group">
-          <label class="radio-inline">{{ form.rating.label }}</label>
-          {% for radio in form.rating %}
-          <div class="form-check form-check-inline">
-            {{ radio }}
-          </div>
-          {% endfor %}
-        </div>
+        <label class="form-label">{{ form.rating.label }}</label>
+        <div class="rateyo-interactive"></div>
+        {{ form.rating }}
       </div>
     </div>
     <button class="btn btn-secondary" type="submit">{{ label }}</button>

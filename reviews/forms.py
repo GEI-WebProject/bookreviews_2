@@ -15,8 +15,7 @@ class ReviewForm(forms.ModelForm):
         'rows': 4,
         'cols': 3,
         }))
-    rating = forms.ChoiceField(widget=forms.RadioSelect(attrs={'class': 'form-check-inline'}), choices=CHOICES, initial=1)
-    
+    rating = forms.IntegerField(widget=forms.HiddenInput(), initial=1)
     class Meta:
         model = Review
         fields = ['title', 'body', 'rating']
