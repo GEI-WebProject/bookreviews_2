@@ -40,7 +40,7 @@ class BookDetailView(DetailView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['latest_reviews'] = self.object.reviews.all().order_by('-updated-at')[:self.REVIEWS_SHOWN]
+        context['latest_reviews'] = self.object.reviews.all().order_by('-updated_at')[:self.REVIEWS_SHOWN]
         context['num_reviews_shown'] = self.REVIEWS_SHOWN
         return context
 
