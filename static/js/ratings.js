@@ -1,18 +1,19 @@
 var rateYoConfig = {
-    starWidth: "20px"
 };
 
-$(function() {
+$(function () {
     $(".rateyo-read-only").rateYo({
+        starWidth: "20px",
         readOnly: true,
         ratedFill: "#3DA7F3",
         ...rateYoConfig
     });
 });
 
-$(function() {
+$(function () {
     $(".rateyo-interactive").rateYo({
-        fullStar: true, 
+        starWidth: "30px",
+        fullStar: true,
         ...rateYoConfig,
         // Show previous rating or default value
         rating: $("input[name='rating']").val(),
@@ -25,7 +26,7 @@ $(function() {
         // Set different colors for different ratings
         multiColor: {
             "startColor": "#CFE9FC", // light blue
-            "endColor"  : "#3DA7F3" // dark blue
+            "endColor": "#3DA7F3" // dark blue
         },
-      });
     });
+});
