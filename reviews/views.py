@@ -8,10 +8,13 @@ from bookapp.models import Book
 from django.contrib import messages
 
 
-class AllReviewsListView(ListView):
+class AllReviewsListView(LoginRequiredMixin, ListView):
     model = Review
     template_name = "reviews/reviews.html"
     context_object_name = "reviews"
+    
+    def get_queryset(self):
+        return Review.objects.filter(user = self.request.user).order_by('-updated_at')
 
 
 class ReviewDetailView(DetailView):
