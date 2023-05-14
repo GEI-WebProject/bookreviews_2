@@ -19,13 +19,15 @@
 
         <!-- Bottom line with date and edit/delete buttons -->
         <div class="row align-items-end"">
-            <div class="col">
-                <a href="{% url 'review_update' book_id=review.book.id pk=review.pk %}" class="btn btn-primary">Edit</a>
-                <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#confirm-delete-modal-{{ review.id }}">
-                    Delete
-                </button>
-                {% include 'reviews/review_delete.html'%}
-            </div>
+            {% if review.user == user %}
+                <div class="col">
+                    <a href="{% url 'review_update' book_id=review.book.id pk=review.pk %}" class="btn btn-primary">Edit</a>
+                    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#confirm-delete-modal-{{ review.id }}">
+                        Delete
+                    </button>
+                    {% include 'reviews/review_delete.html'%}
+                </div>
+            {% endif %}
             <div class="col">
                 <p class="card-text text-end">
                     <small class="text-muted">{{ review.created_at }} (Last update: {{review.updated_at }})</small>
