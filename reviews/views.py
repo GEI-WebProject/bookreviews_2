@@ -6,15 +6,16 @@ from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from .forms import ReviewForm
 from bookapp.models import Book
 from django.contrib import messages
+from django.db.models import Case, When, Value, BooleanField
 
 
 class AllReviewsListView(LoginRequiredMixin, ListView):
     model = Review
     template_name = "reviews/reviews.html"
     context_object_name = "reviews"
-    
+
     def get_queryset(self):
-        return Review.objects.filter(user = self.request.user).order_by('-updated_at')
+        return Review.objects.filter(user=self.request.user).order_by('-updated_at')
 
 
 class ReviewDetailView(DetailView):
@@ -32,11 +33,16 @@ class BookReviewsListView(ListView):
     # Add get_queryset() method to filter reviews by book
     def get_queryset(self):
         if self.request.user.is_authenticated:
-            my_reviews = list(Review.objects.filter(book = self.kwargs['book_id'], user = self.request.user).order_by('-updated_at'))
-            other_reviews = list(Review.objects.filter(book = self.kwargs['book_id']).exclude(user = self.request.user).order_by('-updated_at'))
-            return my_reviews.extend(other_reviews)
+            return Review.objects.filter(book=self.kwargs['book_id']).order_by(
+                Case(
+                    When(user=self.request.user, then=Value(0)),
+                    default=Value(1),
+                    output_field=BooleanField(),
+                ),
+                '-updated_at'
+            )
         else:
-            return Review.objects.filter(book = self.kwargs['book_id']).order_by('-updated_at')
+            return Review.objects.filter(book=self.kwargs['book_id']).order_by('-updated_at')
 
     # Add get_context_data() method to add book to context
     def get_context_data(self, **kwargs):
@@ -50,7 +56,6 @@ class CreateReviewView(LoginRequiredMixin, CreateView):
     template_name = "reviews/review_create.html"
     form_class = ReviewForm
     success_message = "Review created successfully!"
-
 
     def form_valid(self, form):
         form.instance.user = self.request.user
@@ -68,13 +73,12 @@ class UpdateReviewView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     form_class = ReviewForm
     success_message = "Review updated successfully!"
 
-
     def get_success_url(self):
         return reverse_lazy('book_reviews', kwargs={'book_id': self.kwargs['book_id']})
 
     def test_func(self):
         return self.request.user == self.get_object().user
-    
+
     def form_valid(self, form):
         messages.success(self.request, self.success_message)
         return super().form_valid(form)
@@ -90,7 +94,7 @@ class DeleteReviewView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
 
     def test_func(self):
         return self.request.user == self.get_object().user
-    
+
     def form_valid(self, form):
         messages.success(self.request, self.success_message)
         return super().form_valid(form)
