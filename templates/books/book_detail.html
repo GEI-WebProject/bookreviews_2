@@ -2,40 +2,46 @@
 {% load static %}
 
 {% block title %}
-    {{ book.title }}
+{{ book.title }}
 {% endblock title %}
 
 {% block head %}
-    <link rel="stylesheet" href="{% static 'css/book_detail.css' %}">
-    <link rel="stylesheet" href="{% static 'css/review.css' %}">
+<link rel="stylesheet" href="{% static 'css/book_detail.css' %}">
+<link rel="stylesheet" href="{% static 'css/review.css' %}">
 {% endblock head %}
 
 {% block content %}
-    <!-- Book Information -->
-    <div class="book-info">
-        {% include 'books/book_entry.html' with detailed=True %}
+<!-- Book Information -->
+<div class="container-fluid">
+    <div class="row mb-4">
+        <div class="book-info">
+            {% include 'books/book_entry.html' with detailed=True %}
+        </div>
     </div>
 
     <!-- Book Reviews -->
-    <div class="book-reviews">
-        <h2>Latest Reviews</h2>
+    <div class="row">
+        <div class="book-reviews">
+            <h2>Latest Reviews</h2>
 
-        <!--Create a new review button-->
-        <a href="{% url 'review_create' book.id %}" class="btn btn-primary">Create a new review</a>
+            <!--Create a new review button-->
+            <a href="{% url 'review_create' book.id %}" class="btn btn-primary">Create a new review</a>
 
-        <!-- Show reviews -->
-        {% if book.reviews.all %}
+            <!-- Show reviews -->
+            {% if book.reviews.all %}
             {% for review in latest_reviews %}
-                {% include 'reviews/review_entry.html' %}
+            {% include 'reviews/review_entry.html' %}
             {% endfor %}
 
-        {% else %}
+            {% else %}
             <p>No reviews yet!</p>
-        {% endif %}
+            {% endif %}
 
-        <!-- Show more reviews -->
-        {% if book.reviews.count > num_reviews_shown %}
+            <!-- Show more reviews -->
+            {% if book.reviews.count > num_reviews_shown %}
             <a href="{% url 'book_reviews' book.id %}">See more reviews</a>
-        {% endif %}
+            {% endif %}
+        </div>
     </div>
+</div>
 {% endblock content %}
