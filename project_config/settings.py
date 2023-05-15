@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'accounts',
     'bootstrap5',
     'reviews',
+    'behave_django',
 ]
 
 MIDDLEWARE = [
