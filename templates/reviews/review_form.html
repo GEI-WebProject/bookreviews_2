@@ -1,25 +1,28 @@
-<form class="row g-3 mx-auto my-auto" method="post">
+<form class="row gy-5 mx-auto my-auto" method="post">
   {% csrf_token %}
   <div class="container">
-    <div class="row">
+    <div class="row mb-3">
       <div class="col-md-6">
         <label class="form-label">{{ form.title.label }}</label>
         {{ form.title }}
       </div>
     </div>
-    <div class="row">
+    <div class="row mb-3">
       <div class="col-md-6">
         <label class="form-label">{{ form.body.label }}</label>
         {{ form.body }}
       </div>
     </div>
-    <div class="row">
+    <div class="row mb-3">
       <div class="col-md-6">
         <label class="form-label">{{ form.rating.label }}</label>
         <div class="rateyo-interactive"></div>
         {{ form.rating }}
       </div>
     </div>
-    <button class="btn btn-secondary" type="submit">{{ label }}</button>
+    <div class="row mb-3">
+      <div class="col-md-6">
+        <button class="btn btn-secondary" type="submit">{{ label }}</button>
+      </div>
   </div>
 </form>
