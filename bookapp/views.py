@@ -14,9 +14,10 @@ class HomeView(ListView):
         today = timezone.now().date()
         daily_books = cache.get(today)
         if not daily_books:
+            SAMPLE = 5
             # If the cached random books for today don't exist, generate them and cache them for the day
             all_books = list(Book.objects.all())
-            daily_books = sample(all_books, 5)
+            daily_books = sample(all_books, SAMPLE) if len(all_books) > SAMPLE else all_books
             cache.set(today, daily_books, 60 * 60 * 24)  # Cache for 24 hours
         return daily_books
 
