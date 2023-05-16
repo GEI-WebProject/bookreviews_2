@@ -25,7 +25,7 @@
             <h2>Latest Reviews</h2>
 
             <!--Create a new review button-->
-            <a href="{% url 'review_create' book.id %}" class="btn btn-primary">Create a new review</a>
+            <a href="{% url 'review_create' book.id %}" class="btn btn-primary" value="create_review">Create a new review</a>
 
             <!-- Show reviews -->
             {% if book.reviews.all %}
