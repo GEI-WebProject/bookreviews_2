@@ -42,7 +42,7 @@
                 {% elif 'danger' in message.tags %}
                     <i class="bi bi-exclamation-triangle-fill"></i>
                 {% endif %}
-                {{ message }}
+                <span name="msg">{{ message }}</span>
               </div>
             </div>
             {% endfor %} 
