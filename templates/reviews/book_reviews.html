@@ -14,7 +14,9 @@
     </h2>
 
     <!--Create a new review button-->
-    <a href="{% url 'review_create' book.id %}" class="btn btn-primary">Create a new review</a>
+    <a href="{% url 'review_create' book.id %}" class="btn btn-primary" name="create_review_button">
+        Create a new review
+    </a>
     
     {% for review in reviews %}
         {% include 'reviews/review_entry.html' %}

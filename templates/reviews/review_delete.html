@@ -14,7 +14,7 @@
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
         <form action="{% url 'review_delete' book_id=review.book.id pk=review.id %}" method="post">
           {% csrf_token %}
-          <button type="submit" class="btn btn-primary">Yes, I am!</button>
+          <button type="submit" class="btn btn-primary" name="confirm_delete_review_button">Yes, I am!</button>
         </form>
       </div>
     </div>

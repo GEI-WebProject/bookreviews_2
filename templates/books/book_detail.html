@@ -25,7 +25,9 @@
             <h2>Latest Reviews</h2>
 
             <!--Create a new review button-->
-            <a href="{% url 'review_create' book.id %}" class="btn btn-primary" value="create_review">Create a new review</a>
+            <a href="{% url 'review_create' book.id %}" class="btn btn-primary" name="create_review_button">
+                Create a new review
+            </a>
 
             <!-- Show reviews -->
             {% if book.reviews.all %}
@@ -39,7 +41,7 @@
 
             <!-- Show more reviews -->
             {% if book.reviews.count > num_reviews_shown %}
-            <a href="{% url 'book_reviews' book.id %}">See more reviews</a>
+            <a href="{% url 'book_reviews' book.id %}" name="more_reviews_link">See more reviews</a>
             {% endif %}
         </div>
     </div>
