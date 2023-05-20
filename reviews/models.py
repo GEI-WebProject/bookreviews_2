@@ -23,4 +23,4 @@ class Review(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
-        return f"{self.title} by {self.user}"
+        return f'Review: "{self.title}" by {self.user.username} on {self.book.title}'

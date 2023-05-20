@@ -24,6 +24,11 @@
         <div class="book-reviews">
             <h2>Latest Reviews</h2>
 
+            <p>
+                <h4 name="average_rating">Average Rating: {{ book.averageRating|stringformat:".1f" }}</h4>
+                <div class="rateyo-read-only" data-rateyo-rating="{{ book.averageRating }}"></div>
+            </p>
+
             <!--Create a new review button-->
             <a href="{% url 'review_create' book.id %}" class="btn btn-primary" name="create_review_button">
                 Create a new review

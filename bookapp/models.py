@@ -1,4 +1,5 @@
 from django.db import models
+from django.db.models import Avg
 
 # Create your models here.
 
@@ -44,3 +45,9 @@ class Book(models.Model):
 
     def __str__(self):
          return self.title
+     
+    def averageRating(self):
+        if not self.reviews.count():
+            return 0
+        else:
+            return self.reviews.all().aggregate(Avg('rating'))['rating__avg']

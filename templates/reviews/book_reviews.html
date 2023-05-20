@@ -17,6 +17,10 @@
     <a href="{% url 'review_create' book.id %}" class="btn btn-primary" name="create_review_button">
         Create a new review
     </a>
+
+    <p>
+        <h3 name="average_rating">Average Rating: {{ book.averageRating|stringformat:".1f" }}</h3> <span class="rateyo-read-only mb-3" data-rateyo-rating="{{ book.averageRating }}"></span>
+    </p>
     
     {% for review in reviews %}
         {% include 'reviews/review_entry.html' %}
