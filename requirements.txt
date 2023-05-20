@@ -6,3 +6,4 @@ django-bootstrap-v5==1.0.11
 behave==1.2.6
 behave-django==1.4.0
 splinter==0.19.0
+selenium==4.9.1
