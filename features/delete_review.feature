@@ -13,3 +13,7 @@ Feature: Delete Review
   Scenario: A user who is not logged in can't delete a review via 'Delete' button
     Given I am on the "Test Book" detail page
     Then I can't see the "Delete" button
+
+  Scenario: A user who is not logged in can't delete a review via url
+    Given I access the url to delete a review of "Test Book"
+    Then I am redirected to the login page
