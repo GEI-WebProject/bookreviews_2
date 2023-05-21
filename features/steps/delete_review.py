@@ -31,3 +31,18 @@ def step_impl(context):
 @then(u'The review is not shown in the page')
 def step_impl(context):
     assert context.browser.find_by_name('review_card').is_empty()
+
+
+@then(u'I can\'t delete the review via url for the book "{book_title}"')
+def step_impl(context, book_title):
+    import re
+    from bookapp.models import Book
+    from reviews.models import Review
+    book_id = Book.objects.get(title=book_title).id
+    review_id = Review.objects.get(book_id=book_id).id
+    context.browser.visit(context.get_url(
+        'review_delete', book_id=book_id, pk=review_id))
+
+    status_code = re.search(
+        r'\b\d{3}\b', context.browser.find_by_tag('h1').first.value).group()
+    assert status_code == "403"

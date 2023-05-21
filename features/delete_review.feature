@@ -26,3 +26,10 @@ Feature: Delete Review
     Then The review is not shown in the page
     And There are "0" reviews
     And A "Review deleted successfully!" message is shown
+
+  Scenario: A logged in user can't delete a review from another user
+    Given I login as user "another_user" with password "pass12345"
+    And I am on the "Test Book" detail page
+    Then I can't see the "Delete" button
+    And I can't delete the review via url for the book "Test Book"
+
