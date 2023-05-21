@@ -42,4 +42,10 @@ def step_impl(context, username, password):
     form.find_by_name('login_button').first.click()
 
 
+@given(u'I login as user "{username}" with password "{password}"')
+def step_impl(context, username, password):
+    form = context.browser.find_by_name('login_form').first
+    context.browser.fill('username', username)
+    context.browser.fill('password', password)
+    form.find_by_name('login_button').first.click()
 

@@ -12,3 +12,18 @@ Feature: Create Review
         When I click on "Create a new review" button
         Then I am redirected to the login page
         And I can't create the review via url for the book "Test Book"
+
+    Scenario: A logged in user creates a review
+        Given I login as user "user" with password "pass12345"
+        And I am on the "Test Book" detail page
+        When I click on "Create a new review" button
+        And I fill in the review form with valid data
+            | title            | body       | rating |
+            | My first review! | Very good! | 3      |
+        And I submit the review form
+        Then I'm viewing the reviews page for the book "Test Book"
+        And My review is on top
+            | title            | body       | rating |
+            | My first review! | Very good! | 3      |
+        And There are "1" reviews
+        And A "Review created successfully!" message is shown
