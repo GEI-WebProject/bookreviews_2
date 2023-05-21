@@ -17,3 +17,12 @@ Feature: Delete Review
   Scenario: A user who is not logged in can't delete a review via url
     Given I access the url to delete a review of "Test Book"
     Then I am redirected to the login page
+
+  Scenario: A logged in user deletes a review
+    Given I login as user "user" with password "pass12345"
+    And I am on the "Test Book" detail page
+    When I click on the "Delete" button
+    And I confirm that I want to delete the review
+    Then The review is not shown in the page
+    And There are "0" reviews
+    And A "Review deleted successfully!" message is shown

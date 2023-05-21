@@ -16,3 +16,18 @@ def step_impl(context, book_title):
     review_id = Review.objects.get(book_id=book_id).id
     context.browser.visit(context.get_url(
         'review_delete', book_id=book_id, pk=review_id))
+
+
+@when(u'I click on the "Delete" button')
+def step_impl(context):
+    context.browser.find_by_name("delete_review_button").first.click()
+
+
+@when(u'I confirm that I want to delete the review')
+def step_impl(context):
+    context.browser.find_by_name('confirm_delete_review_button').first.click()
+
+
+@then(u'The review is not shown in the page')
+def step_impl(context):
+    assert context.browser.find_by_name('review_card').is_empty()
