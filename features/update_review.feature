@@ -8,3 +8,7 @@ Feature: Update Review
         And Exists a user "user" with password "pass12345"
         And Exists a user "another_user" with password "pass12345"
         And Exists a review for the book "Test Book" posted by "user" with title "My first review!" body "Very good!" and rating "3"
+
+    Scenario: A user who is not logged in can't update a review via 'Edit' button
+        Given I am on the "Test Book" detail page
+        Then I can't see the "Edit" button
