@@ -31,3 +31,10 @@ Feature: Update Review
             | My first edited review ! | Very good again! | 5      |
         And There are "1" reviews
         And A "Review updated successfully!" message is shown
+
+
+    Scenario: A logged in user can't update a review from another user
+        Given I login as user "another_user" with password "pass12345"
+        And I am on the "Test Book" detail page
+        Then I can't see the "Edit" button
+        And I can't update the review via url for the book "Test Book"
