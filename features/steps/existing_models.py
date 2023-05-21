@@ -2,6 +2,7 @@ from behave import *
 from django.contrib.auth.models import User
 
 from bookapp.models import *
+from reviews.models import Review
 
 use_step_matcher("parse")
 
@@ -31,3 +32,9 @@ def step_impl(context, title, isbn, synopsis, genre, language, cover, author, pu
     book.genres.add(genr)
 
 
+@given(u'Exists a review for the book "{book_title}" posted by "{user}" with title "{title}" body "{body}" and rating "{rating}"')
+def step_impl(context, book_title, user, title, body, rating):
+    book = Book.objects.get(title=book_title)
+    user = User.objects.get(username=user)
+    Review.objects.create(book=book, user=user,
+                          title=title, body=body, rating=rating)
