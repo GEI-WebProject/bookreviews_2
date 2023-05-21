@@ -16,3 +16,8 @@ def step_impl(context, book_title):
     review_id = Review.objects.get(book_id=book_id).id
     context.browser.visit(context.get_url(
         'review_update', book_id=book_id, pk=review_id))
+
+
+@when(u'I click on the "Edit" button')
+def step_impl(context):
+    context.browser.find_by_name("update_review_button").first.click()

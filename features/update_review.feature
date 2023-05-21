@@ -13,7 +13,21 @@ Feature: Update Review
         Given I am on the "Test Book" detail page
         Then I can't see the "Edit" button
 
-
     Scenario: A user who is not logged in can't update a review via url
         Given I access the url to edit a review of "Test Book"
         Then I am redirected to the login page
+
+    Scenario: A logged in user updates a review
+        Given I login as user "user" with password "pass12345"
+        And I am on the "Test Book" detail page
+        When I click on the "Edit" button
+        And I fill in the review form with valid data
+            | title                    | body             | rating |
+            | My first edited review ! | Very good again! | 5      |
+        And I submit the review form
+        Then I'm viewing the reviews page for the book "Test Book"
+        And My review is on top
+            | title                    | body             | rating |
+            | My first edited review ! | Very good again! | 5      |
+        And There are "1" reviews
+        And A "Review updated successfully!" message is shown
