@@ -13,7 +13,8 @@ def step_impl(context, username, password):
         username=username, email='user@example.com', password=password)
 
 
-@given(u'Exists a book with title "{title}" isbn "{isbn}" synopsis "{synopsis}" genres "{genre}" language "{language}" cover "{cover}" author "{author}" publisher "{publisher}"')
+@given(
+    u'Exists a book with title "{title}" isbn "{isbn}" synopsis "{synopsis}" genres "{genre}" language "{language}" cover "{cover}" author "{author}" publisher "{publisher}"')
 def step_impl(context, title, isbn, synopsis, genre, language, cover, author, publisher):
     lang = Language.objects.create(name=language)
     auth = Author.objects.create(name=author)
@@ -32,7 +33,8 @@ def step_impl(context, title, isbn, synopsis, genre, language, cover, author, pu
     book.genres.add(genr)
 
 
-@given(u'Exists a review for the book "{book_title}" posted by "{user}" with title "{title}" body "{body}" and rating "{rating}"')
+@given(
+    u'Exists a review for the book "{book_title}" posted by "{user}" with title "{title}" body "{body}" and rating "{rating}"')
 def step_impl(context, book_title, user, title, body, rating):
     book = Book.objects.get(title=book_title)
     user = User.objects.get(username=user)
