@@ -12,3 +12,8 @@ Feature: Update Review
     Scenario: A user who is not logged in can't update a review via 'Edit' button
         Given I am on the "Test Book" detail page
         Then I can't see the "Edit" button
+
+
+    Scenario: A user who is not logged in can't update a review via url
+        Given I access the url to edit a review of "Test Book"
+        Then I am redirected to the login page
