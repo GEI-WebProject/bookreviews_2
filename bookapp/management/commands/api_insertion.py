@@ -10,6 +10,7 @@ class Command(BaseCommand):
     #     parser.add_argument("poll_ids", nargs="+", type=int)
 
     def handle(self, *args, **options):
+        self.stdout.write("Searching books...\n")
         books, authors = api.getBooksFromAPI()
         for a in authors:
             Author.objects.get_or_create(name=a.name, defaults={"birth_date": a.birth_date, "bio": a.bio, "picture": a.picture})

@@ -49,6 +49,3 @@ def step_impl(context, username, password):
     context.browser.fill('username', username)
     context.browser.fill('password', password)
     form.find_by_name('login_button').first.click()
-
-
-
